@@ -1,0 +1,6 @@
+import random
+
+def generate_otp(length=6):
+    """Generate a numeric OTP of specified length."""
+    return ''.join(str(random.randint(0, 9)) for _ in range(length))
+
