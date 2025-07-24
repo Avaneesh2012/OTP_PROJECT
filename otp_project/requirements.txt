@@ -1,5 +1,7 @@
 Flask
-Flask-Mail 
-SQLAlchemy 
+Flask-Mail
+Flask-SQLAlchemy
 itsdangerous
-Werkzeug 
+Werkzeug
+gunicorn
+requests 
