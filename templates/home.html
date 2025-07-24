@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        :root {
+            --primary: #4f8cff;
+            --primary-dark: #2c5ecf;
+            --sidebar-bg: #232946;
+            --sidebar-text: #fff;
+            --main-bg: #f6f8fb;
+            --card-bg: #fff;
+            --shadow: 0 4px 24px rgba(44, 94, 207, 0.08);
+        }
+        body.night {
+            --sidebar-bg: #181c25;
+            --sidebar-text: #e0e6f0;
+            --main-bg: #10131a;
+            --card-bg: #181c25;
+            --primary: #7ab7ff;
+            --primary-dark: #4f8cff;
+        }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--main-bg);
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 230px;
+            height: 100vh;
+            background: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+            box-shadow: 2px 0 12px rgba(44, 94, 207, 0.07);
+        }
+        .sidebar h1 {
+            font-size: 1.7em;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        .nav-links {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: var(--sidebar-text);
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            font-size: 1.1em;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(44, 94, 207, 0.12);
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 70px 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            padding: 40px 36px 32px 36px;
+            max-width: 500px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .main-content h2 {
+            color: var(--primary-dark);
+            font-size: 2.3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .main-content p {
+            color: #444;
+            font-size: 1.18em;
+            margin-bottom: 30px;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            font-size: 1.15em;
+            font-weight: 600;
+            padding: 14px 38px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(44, 94, 207, 0.13);
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.18s, box-shadow 0.18s, transform 0.13s;
+        }
+        .cta-btn:hover {
+            background: var(--primary-dark);
+            box-shadow: 0 4px 18px rgba(44, 94, 207, 0.18);
+            transform: translateY(-2px) scale(1.03);
+        }
+        @media (max-width: 700px) {
+            .sidebar {
+                width: 100vw;
+                height: auto;
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 10px 0;
+                position: static;
+                box-shadow: none;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 30px 10px;
+                align-items: stretch;
+            }
+            .card {
+                padding: 24px 10px 20px 10px;
+            }
+        }
+    </style>
+    <script>
+      // Day: 7am-7pm, Night: 7pm-7am
+      (function() {
+        var hour = new Date().getHours();
+        if (hour < 7 || hour >= 19) {
+          document.body.classList.add('night');
+        }
+      })();
+    </script>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>OTP Project</h1>
+        <div class="nav-links">
+            <a href="/" class="active">Home</a>
+            <a href="/register">Register</a>
+            <a href="/login">Login</a>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="card">
+            <h2>Welcome to the OTP Project!</h2>
+            <p>This is a simple banking demo app. Use the sidebar to register or log in to your account.</p>
+            <a href="/register" class="cta-btn">Get Started</a>
+        </div>
+    </div>
+</body>
+</html> 
