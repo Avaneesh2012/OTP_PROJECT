@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Register - Mini Bank{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h2 class="mb-4 text-center">Register</h2>
+        <form method="post">
+          <input type="email" name="email" required>
+          <input type="password" name="password" required>
+          <div class="g-recaptcha" data-sitekey="6LeZWI0rAAAAAKzUqlemCyIYthD9ng8EJFubuAHk"></div>
+          <button type="submit">Register</button>
+        </form>
+        {% if message %}
+          <div class="alert alert-danger mt-3">{{ message }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
